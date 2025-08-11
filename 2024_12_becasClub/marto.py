@@ -37,7 +37,7 @@ def ingresarAspirantes():
                 break
             elif numSocio == -1:
                 return listaAspirantes
-            print("Error: deben ser 4 dígitos")
+            print("Error: deben ser 4 dígitos y no ser repetido")
 
         while True:
             edad = int(input("Ingresar edad: "))
@@ -62,6 +62,17 @@ def aspirantesValidos(aspirantes):
 
     return contadorValidos, rechazosPorEdad
 
+def ordenarMenorAMayor(lista):
+    desordenada = True
+    while desordenada:
+        desordenada = False
+        for i in range(len(lista)-1):
+            if lista[i]>lista[i+1]:
+                aux = lista[i]
+                lista[i] = lista[i+1]
+                lista[i+1] = aux
+                desordenada = True
+
 def main():
 
     aspirantes = ingresarAspirantes()
@@ -70,11 +81,18 @@ def main():
 
     print("\nAspirantes \t| Socio \t| Edad")
     for i in range(len(aspirantes)):
-        print(f"{i}° \t\t| {aspirantes[i][0]} \t\t|1231 {aspirantes[i][1]}")
+        print(f"{i}° \t\t| {aspirantes[i][0]} \t\t| {aspirantes[i][1]}")
 
     print(f"\nTotal aspirantes: {len(aspirantes)}")
     print(f"Aspirantes válidos: {validos}")
     print(f"Aspirantes rechazados por edad: {rechazados}")
+
+    ordenarMenorAMayor(aspirantes)
+
+    print(f"\nLista ordenada de menor a mayor:")
+    print("\nAspirantes \t| Socio \t| Edad")
+    for i in range(len(aspirantes)):
+        print(f"{i}° \t\t| {aspirantes[i][0]} \t\t| {aspirantes[i][1]}")
 
 if __name__ == "__main__":
     main()
