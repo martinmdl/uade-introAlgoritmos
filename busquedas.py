@@ -1,3 +1,4 @@
+##############################################################
 # Búsqueda Secuencial
 # Recorre toda la lista hasta encontrar el dato.
 # No necesita que la lista esté ordenada.
@@ -7,6 +8,7 @@ def busqueda_secuencial(lista, dato):
             return i
     return -1  # Si no encontramos el dato, devolvemos -1
 
+##############################################################
 # Búsqueda Binaria
 # Requiere que la lista esté ordenada.
 # Divide el problema a la mitad cada vez, haciendo que sea mucho más rápida que la búsqueda secuencial.
