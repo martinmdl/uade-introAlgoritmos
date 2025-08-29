@@ -92,8 +92,37 @@ def punto3():
 
 ######################### PUNTO 4 #########################
 
+def ordenamiento_intercambio_desc(matriz):
+    desordenado = True
+    while desordenado:
+        desordenado = False
+        for i in range(len(matriz) - 1):
+            if matriz[i][3] < matriz[i+1][3]:
+                aux = matriz[i+1]
+                matriz[i+1] = matriz[i]
+                matriz[i] = aux
+                desordenado = True
+    return matriz
+
 def punto4():
-    return 1
+
+    productos = [
+        [1, "Laptop", 1200.50],
+        [2, "Mouse", 15.75],
+        [3, "Teclado", 35.20],
+        [4, "Monitor", 250.00],
+        [5, "Impresora", 180.99]
+    ]
+
+    productos1 = productos
+
+    for i in range(len(productos1)):
+        productos1[i].append(round((productos1[i][2] * 1.2), 2))
+
+    ordenamiento_intercambio_desc(productos1)
+
+    printArr(productos)
+    printArr(productos1)
 
 #########################   RUN   #########################
 
