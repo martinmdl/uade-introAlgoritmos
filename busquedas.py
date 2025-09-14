@@ -23,3 +23,20 @@ def busqueda_binaria(lista, dato):
         else:
             der = centro - 1  # El dato está en la mitad izquierda
     return -1  # Si no encontramos el dato, devolvemos -1
+
+##############################################################
+# Otra busqueda binaria
+def busqueda_binaria(lista, valor_buscado):
+  posicion = -1
+  izq = 0
+  der = len(lista)-1
+  while (posicion == -1 and izq <= der):
+    medio = (izq + der) // 2
+    if (lista[medio] == valor_buscado):
+      posicion = medio
+    else:
+      if (valor_buscado > lista[medio]):
+        izq = medio + 1
+      else:
+        der = medio - 1
+  return posicion
